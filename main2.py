@@ -10,8 +10,8 @@ PHONE_NUMBER = '+79375511073'
 
 
 async def main():
-    # print('!!!')
-    client = TelegramClient('my_session', API_ID, API_HASH)
+    client = TelegramClient(str(API_ID), API_ID, API_HASH)
+    await client.start()
     assert await client.connect()
     if not client.is_user_authorized():
         await client.send_code_request(PHONE_NUMBER)
